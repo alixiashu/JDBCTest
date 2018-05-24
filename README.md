@@ -15,8 +15,8 @@ A hello-world test for JDBC.</br>
       模式</br>
 * 4、运行sql</br>
   * 4.1 DML操作</br>
-    stm.executeUpdate("insert into tbl_users values(null,'ali','12121735')");</br>
-  * 4.2 DQL操作</br>
+    stm.executeUpdate("insert into tbl_users values(null,'ali','12121735')");</br>
+  * 4.2 DQL操作</br>
     stm.executeQuery("select * from tbl_users");</br>
 * 4、获取操作结果</br>
   * 4.1 DML操作</br>
