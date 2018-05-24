@@ -43,3 +43,20 @@ JDBC 应用类提取</br>
 * 3、加载输入流</br>
 * 4、读取数据</br>
 * 5、注销相关类</br>
+
+
+## web10_JDBC
+JDBC 自定义数据池</br>
+### 基本实现：MyDataSource.java</br>
+* 1、创建MyDataSource类实现DataSource接口</br>
+* 2、创建一个容器（本案例使用LinkedList以利于频繁添加删除操作）用于储存Connection对象，并加入几个Connection</br>
+* 3、重写getConnection()方法，返回LinkedList中的Connection对象</br>
+* 4、添加归还Connection方法</br>
+### 增强Connection：MyConnection.java(使用装饰者设计模式)</br>
+* 1、创建MyConnectio类实现Connection接口</br>
+* 2、定义一个待增强类（Connection）变量；书写构造函数接受待增强待增强类（Connection）
+* 3、重写需要增强的方法close() ps.需要新增连接池LinkedList<Connection> pool内部变量，并在构造函数里进行接收</br>
+* 4、需要重写prepareStatement(sql)方法</br>
+### 其他</br>
+* 1、MyDataSource1.java是在MyConnection基础上实现的数据连接池</br>
+* 2、TestMyDataSource.java编写工具测试
