@@ -46,8 +46,7 @@ JDBC 应用类提取</br>
 
 
 ## web10_JDBC
-JDBC 自定义数据池</br>
-### com.jdbc.alixia.DataSource
+### com.jdbc.alixia.DataSourceJDBC (自定义数据连接池)
 #### 基本实现：MyDataSource.java</br>
 * 1、创建MyDataSource类实现DataSource接口</br>
 * 2、创建一个容器（本案例使用LinkedList以利于频繁添加删除操作）用于储存Connection对象，并加入几个Connection</br>
@@ -61,3 +60,16 @@ JDBC 自定义数据池</br>
 #### 其他</br>
 * 1、MyDataSource1.java是在MyConnection基础上实现的数据连接池</br>
 * 2、TestMyDataSource.java编写工具测试
+### com.jdbc.alixia.utils (c3p0/dbup)
+#### c3p0(C3P0Utils.java)
+* 1、在src文件夹下创建一个c3p0-config.xml文件，并书写.mxl里的属性</br>
+* 2、生成ComboPooledDataSource变量（会自动搜寻c3p0-config.xml并分析属性创建ComboPooledDataSource）</br>
+* 3、书写getDataSource()方法，返回ComboPooledDataSource变量</br>
+* 4、书写getConnectione()方法，返回一个从ComboPooledDataSource连接池里获取的Connection</br>
+#### dbup(DBUPUtils.java)
+* 1、在src文件夹下创建一个.properties文件，并书写键值对</br>
+* 2、以输入流的形式读入.properties文件</br>
+* 3、生成properties对象并载入输入流</br>
+* 4、使用BasicDataSourceFactory.createDataSource(props)获取DataSource</br>
+* 5、书写getDataSource()方法</br>
+* 6、书写getConnectione()方法</br>
