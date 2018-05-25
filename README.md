@@ -93,5 +93,7 @@ JDBC 应用类提取</br>
 * 1、创建核心类QueryRunne
 * 2、编写sql语句（如果有占位符需要在下一步为占位符设置数值 Object[] params）
 * 3、执行查询操作
-
+* 4、遍历结果集
+* ps.结果处理类
+![](https://github.com/alixiashu/JDBCTest/raw/master/ReadMeImage/1.png)  
 
