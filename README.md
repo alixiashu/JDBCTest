@@ -60,16 +60,38 @@ JDBC 应用类提取</br>
 #### 其他</br>
 * 1、MyDataSource1.java是在MyConnection基础上实现的数据连接池</br>
 * 2、TestMyDataSource.java编写工具测试
-### com.jdbc.alixia.utils (c3p0/dbup)
+### com.jdbc.alixia.utils (c3p0/dbup数据池)
 #### c3p0(C3P0Utils.java)
-* 1、在src文件夹下创建一个c3p0-config.xml文件，并书写.mxl里的属性</br>
-* 2、生成ComboPooledDataSource变量（会自动搜寻c3p0-config.xml并分析属性创建ComboPooledDataSource）</br>
-* 3、书写getDataSource()方法，返回ComboPooledDataSource变量</br>
-* 4、书写getConnectione()方法，返回一个从ComboPooledDataSource连接池里获取的Connection</br>
+* 1、导入c3p0-0.9.1.2.jar数据包</br>
+* 2、Build Path:导入编译路径</br>
+* 3、在src文件夹下创建一个c3p0-config.xml文件，并书写.mxl里的属性</br>
+* 4、生成ComboPooledDataSource变量（会自动搜寻c3p0-config.xml并分析属性创建ComboPooledDataSource）</br>
+* 5、书写getDataSource()方法，返回ComboPooledDataSource变量</br>
+* 6、书写getConnectione()方法，返回一个从ComboPooledDataSource连接池里获取的Connection</br>
 #### dbup(DBUPUtils.java)
+* 1、导入commons-dbcp-1.4.jar数据包和commons-pool-1.5.6.jar数据包</br>
+* 2、Build Path:导入编译路径</br>
 * 1、在src文件夹下创建一个.properties文件，并书写键值对</br>
 * 2、以输入流的形式读入.properties文件</br>
 * 3、生成properties对象并载入输入流</br>
 * 4、使用BasicDataSourceFactory.createDataSource(props)获取DataSource</br>
 * 5、书写getDataSource()方法</br>
 * 6、书写getConnectione()方法</br>
+### com.jdbc.alixia.test (测试类)
+#### TestMyDataSource.java
+* 测试自建数据连接池
+#### TestC3p0.java
+* 使用C3P0Utils类（连接池）获取Connection
+#### TestDBCPU.java
+* 使用DBCPUtils类（连接池）获取Connection
+#### TestDBUtils.java：增删改
+* 1、创建核心类QueryRunner
+* 2、编写sql语句
+* 3、为占位符设置数值 Object[] params
+* 4、执行添加操作
+#### TestDBUtils1.java：查询用户信息
+* 1、创建核心类QueryRunne
+* 2、编写sql语句（如果有占位符需要在下一步为占位符设置数值 Object[] params）
+* 3、执行查询操作
+
+
